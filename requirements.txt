@@ -1,0 +1,8 @@
+pytesseract
+Pillow
+textblob
+nltk
+vaderSentiment
+requests
+beautifulsoup4
+streamlit
