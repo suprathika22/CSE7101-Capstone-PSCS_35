@@ -1,0 +1,3 @@
+[1] R. Smith, “An overview of the Tesseract OCR engine,” in Proc. 9th Int. Conf. Document Analysis and Recognition (ICDAR), Curitiba, Brazil, 2007, pp. 629–633.
+[2] D. K. Sharma, A. Kumar, and A. Joshi, “Multilingual sentiment analysis: Building and evaluating resources for Indian languages,” IEEE Access, vol. 10, pp. 45210–45225, 2022.
+[3] S. Smitha, “Applications of OCR Technology in Indian Languages,” Proc. Indian Language Technology Conf., 2021.
