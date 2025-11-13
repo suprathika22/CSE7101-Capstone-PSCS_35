@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Sentiment Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        .header { background-color: #004d99; color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; }
+        .header a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        .content { padding: 20px; }
+        h1, h2 { color: #333; }
+        /* Table styling for log */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: white; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .sentiment-positive { color: green; font-weight: bold; }
+        .sentiment-negative { color: red; font-weight: bold; }
+        .sentiment-neutral { color: orange; font-weight: bold; }
+        .card { background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="logo">Gov Sentiment Hub</span>
+        <nav>
+            <a href="{{ url_for('index') }}">Home/Verify News</a>
+            <a href="{{ url_for('departments') }}">Departments</a>
+            <a href="{{ url_for('statistics') }}">Statistics</a>
+        </nav>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

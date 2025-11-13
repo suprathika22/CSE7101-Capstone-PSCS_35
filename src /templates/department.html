@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>News Classified by Government Department</h2>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: start;">
+    {% for dept in departments_data %}
+    <div class="card" style="width: 300px; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+        
+        <img src="{{ url_for('static', filename=dept.img) }}" alt="{{ dept.name }}" style="width: 100%; height: 150px; object-fit: cover;">
+        
+        <div style="padding: 15px;">
+            <h3>{{ dept.name }} Department</h3>
+            <p><strong>Total Posts:</strong> <span style="color: blue; font-weight: bold;">{{ dept.total_posts }}</span></p>
+            <h4>Latest News Snippets:</h4>
+            
+            {% if dept.latest_snippets %}
+                {% for snippet in dept.latest_snippets %}
+                    <div style="border-left: 3px solid #007bff; padding-left: 10px; margin-bottom: 5px;">
+                        <p style="margin: 0;">{{ snippet.snippet|truncate(40, True) }}</p>
+                        <p style="margin: 0; font-size: 0.9em;">Sentiment: 
+                            <span class="sentiment-{{ snippet.sentiment.lower() }}">{{ snippet.sentiment }}</span>
+                        </p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No recent news verified for this department.</p>
+            {% endif %}
+        </div>
+        
+        <div style="padding: 15px; border-top: 1px solid #eee; margin-top: auto;">
+            <h4>Verification Log for {{ dept.name }}</h4>
+            {% if dept.logs %}
+                <table style="font-size: 0.85em;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Snippet</th>
+                            <th>Sentiment</th>
+                            <th>Time & Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for log in dept.logs|reverse %} <tr>
+                            <td>{{ log.id }}</td>
+                            <td>{{ log.snippet|truncate(25, True) }}</td>
+                            <td class="sentiment-{{ log.sentiment.lower() }}">{{ log.sentiment }}</td>
+                            <td>{{ log.time_date.split(' ')[1][:5] }}</td> 
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No log entries yet.</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
