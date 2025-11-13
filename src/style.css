@@ -1,0 +1,10 @@
+/* static/style.css */
+/* Minimal styling to ensure elements exist */
+
+/* Example basic styling for the department images to be found */
+.card img {
+    /* Ensures the image is found if you place them in static/dept_imgs/ */
+    object-fit: cover;
+}
+
+/* You can add more styles here to match the dashboard's look */
