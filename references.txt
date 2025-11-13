@@ -1,3 +1,21 @@
-[1] R. Smith, “An overview of the Tesseract OCR engine,” in Proc. 9th Int. Conf. Document Analysis and Recognition (ICDAR), Curitiba, Brazil, 2007, pp. 629–633.
-[2] D. K. Sharma, A. Kumar, and A. Joshi, “Multilingual sentiment analysis: Building and evaluating resources for Indian languages,” IEEE Access, vol. 10, pp. 45210–45225, 2022.
-[3] S. Smitha, “Applications of OCR Technology in Indian Languages,” Proc. Indian Language Technology Conf., 2021.
+[1] A. Corallo et al., "Sentiment Analysis for Government: An Optimized Approach," in Machine Learning and Data Mining in Pattern Recognition. MLDM 2015. Lecture Notes in Computer Science, P. Perner, Ed. Cham: Springer, 2015, vol. 9166, pp. 79–90. doi: 10.1007/978-3-319-21024-7_7.
+[2] S. Leelavathy and M. Nithya, "Public opinion mining using natural language processing technique for improvisation towards smart city," Int. J. Speech Technol., vol. 23, pp. 83–91, Nov. 2020. doi: 10.1007/s10772-020-09766-z.
+[3] J. W. Creswell and J. D. Creswell, "Research Design: Qualitative, Quantitative, and Mixed Methods Approaches, 5th Edition," J. Educ. Meas., vol. 59, no. 2, pp. 248–251, 2022. doi: 10.1080/15424065.2022.2046231.
+[4] W. Kimberlee et al., "Automated decision-making in NSW: Mapping and analysis of the use of ADM systems by state and local governments," Aust. J. Public Adm., vol. 83, no. 1, pp. 49–67, Mar. 2024. doi: 10.60836/40eb-we52.
+[5] G. Chandrasekaran and J. Hemanth, "Deep Learning and TextBlob Based Sentiment Analysis for Coronavirus (COVID-19) Using Twitter Data," Int. J. Artif. Intell. Tools, vol. 31, no. 1, p. 2250011, 2022. doi: 10.1142/S0218213022500117.
+[6] R. A. Vila, E. Estevez, and P. R. Fillottrani, "The design and use of dashboards for driving decision-making in the public sector," in Proc. 19th Annu. Int. Conf. Digit. Gov. Res., New York, NY, USA: ACM, 2018, pp. 31–40. doi: 10.1145/3209415.3209467.
+[7] J. H. Ward, Jr., and P. R. Sarle, "Algorithms for Clustering Data," Technometrics, vol. 32, no. 2, pp. 227–229, 1990. doi: 10.1080/00401706.1990.10484648.
+[8] T. Joachims, "Text categorization by machine learning," ACM Comput. Surv., vol. 34, no. 2, pp. 164–197, Jun. 2002. doi: 10.1145/508445.508447.
+[9] A. M. Aubaid, "A Rule-Based Approach to Embedding Techniques for Text Document Classification," Appl. Sci., vol. 10, no. 11, p. 4009, 2020. doi: 10.3390/app10114009.
+[10] U. Patkar et al., "PYTHON FOR WEB DEVELOPMENT," Int. J. Comput. Sci. Manag. Stud., vol. 11, no. 4, pp. 36–48, Apr. 2022. doi: 10.47760/ijcsmc.2022.v11i04.006.
+[11] K. Adnan and R. Akbar, "Limitations of information extraction methods and techniques for heterogeneous unstructured big data," Inf. Technol. Control, vol. 49, no. 1, pp. 153–166, 2020. doi: 10.1177/1847979019890117.
+[12] J. Kaur and P. K. Buttar, "STOPWORDS REMOVAL AND ITS ALGORITHMS BASED ON DIFFERENT METHODS," Int. J. Adv. Res. Comput. Sci., vol. 9, no. 5, pp. 81–86, Sep./Oct. 2018. doi: 10.26483/ijarcs.v9i5.6301.
+[13] C. Neudecker et al., "A survey of OCR evaluation tools and metrics," in Proc. 2021 ACM Symp. Document Eng. (DocEng '21), New York, NY, USA: ACM, 2021, pp. 147–156. doi: 10.1145/3476887.3476888.
+[14] M. M. Agüero-Torales, J. I. A. Salas, and A. G. López-Herrera, "Deep learning and multilingual sentiment analysis on social media data: An overview," Appl. Soft Comput., vol. 109, p. 107373, Sep. 2021. doi: 10.1016/j.asoc.2021.107373.
+[15] S. Kumar et al., "Text Extraction from Images Using Tesseract," in Innovations in Computational Intelligence and Data Sciences, P. S. Rathore et al., Eds. Hoboken, NJ, USA: Wiley, 2024, pp. 1–18. doi: 10.1002/9781394234271.ch1.
+[16] P. Massonet et al., "A Monitoring and Audit Logging Architecture for Data Location Compliance in Federated Cloud Infrastructures," in 2011 IEEE Int. Symp. Parallel Distrib. Process. Workshops PhD Forum, Anchorage, AK, USA, 2011, pp. 1510–1517. doi: 10.1109/IPDPS.2011.304.
+[17] S. Loria, Pytesseract (Version 5.0.0-alpha.2) [Software]. 2023. Available: https://pypi.org/project/pytesseract/.
+[18] S. Loria, TextBlob (Version 0.17.1) [Software]. 2018. Available: https://textblob.readthedocs.io/en/dev/.
+[19] T. M. Kalpana and M. Suman, "Leveraging Keyword-Enhanced Models to Handle Class Imbalance in Text Classification," in Proc. 2023 Conf. Empir. Methods Nat. Lang. Process. (EMNLP), 2023, pp. 2023–2035. Available: https://pmc.ncbi.nlm.nih.gov/articles/PMC9533247/.
+[20] Y. A. Gomaa, "Language policy in the virtual linguistic landscape: The case of the Kingdom of Bahrain E-Government national portal," Linguagem em (Dis)curso, vol. 21, no. 2, pp. 375–395, 2021. doi: 10.26512/les.v21i2.29354.
+
