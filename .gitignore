@@ -1,1 +1,18 @@
+# Python / virtual environments
+venv/
+.env
+pyvenv.cfg
 
+# Tesseract & uploads
+tessdata/
+Tesseract-OCR/
+uploads/
+
+# Cache & temp files
+__pycache__/
+*.pyc
+.vscode/
+
+# Optional: ignore docs if you don't want to upload
+# *.docx
+# *.pdf
