@@ -1,8 +1,7 @@
+Flask
 pytesseract
 Pillow
-textblob
+googletrans==4.0.0-rc1 # Need a specific version as the latest stable might have issues
 nltk
-vaderSentiment
-requests
-beautifulsoup4
-streamlit
+pandas
+numpy
