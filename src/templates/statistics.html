@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Analysis & Verification Statistics</h2>
+
+<div style="display: flex; gap: 20px;">
+    <div class="card" style="flex: 1;">
+        <h3>Overall Sentiment Distribution</h3>
+        <div style="width: 100%; height: 400px; display: flex; justify-content: center; align-items: center;">
+            <canvas id="sentimentPieChart" style="max-width: 400px; max-height: 400px;"></canvas>
+        </div>
+    </div>
+
+    <div class="card" style="flex: 1;">
+        <h3>Sentiment Polarity Over Time (Bubble Chart)</h3>
+        <div style="width: 100%; height: 400px;">
+            <canvas id="polarityBubbleChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="card" style="margin-top: 20px;">
+    <h3>Verification Log ({{ verification_log|length }} Posts)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Text Snippet</th>
+                <th>Sentiment</th>
+                <th>Polarity</th>
+                <th>Departments</th>
+                <th>Time & Date</th>
+                <th>Source</th>
+                <th>Lang.</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in verification_log|reverse %} <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.snippet|truncate(60, True) }}</td>
+                <td class="sentiment-{{ log.sentiment.lower() }}">{{ log.sentiment }}</td>
+                <td>{{ log.polarity|float|abs|round(1) }}</td> 
+                <td>{{ log.departments }}</td>
+                <td>{{ log.time_date.split(' ')[0] }} {{ log.time_date.split(' ')[1][:5] }}</td>
+                <td>{{ log.source }}</td>
+                <td>{{ log.lang }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // --- Chart Data from Flask ---
+    // These variables are populated by the backend (app.py) using Jinja tojson filter.
+    const sentimentCounts = {{ sentiment_counts | tojson }};
+    const bubbleData = {{ bubble_data | tojson }};
+
+    // --- 1. Pie Chart: Overall Sentiment Distribution ---
+    const pieCtx = document.getElementById('sentimentPieChart').getContext('2d');
+    new Chart(pieCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Negative', 'Neutral', 'Positive'],
+            datasets: [{
+                data: [
+                    sentimentCounts['Negative'], 
+                    sentimentCounts['Neutral'], 
+                    sentimentCounts['Positive']
+                ],
+                backgroundColor: [
+                    '#ff6384', // Red for Negative
+                    '#ff9f40', // Orange for Neutral
+                    '#4bc0c0'  // Green for Positive
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: false
+                }
+            }
+        }
+    });
+
+    // --- 2. Bubble Chart: Sentiment Polarity Over Time ---
+    const bubbleCtx = document.getElementById('polarityBubbleChart').getContext('2d');
+    
+    // Group data by sentiment for correct legend and coloring
+    const positiveBubbles = bubbleData.filter(d => d.sentiment === 'Positive');
+    const neutralBubbles = bubbleData.filter(d => d.sentiment === 'Neutral');
+    const negativeBubbles = bubbleData.filter(d => d.sentiment === 'Negative');
+
+    const datasets = [
+        {
+            label: 'Positive',
+            data: positiveBubbles.map(d => ({ x: d.x, y: parseFloat(d.y), r: d.r })),
+            backgroundColor: 'rgba(75, 192, 192, 0.6)' // Green
+        },
+        {
+            label: 'Neutral',
+            data: neutralBubbles.map(d => ({ x: d.x, y: parseFloat(d.y), r: d.r })),
+            backgroundColor: 'rgba(255, 159, 64, 0.6)' // Orange
+        },
+        {
+            label: 'Negative',
+            data: negativeBubbles.map(d => ({ x: d.x, y: parseFloat(d.y), r: d.r })),
+            backgroundColor: 'rgba(255, 99, 132, 0.6)' // Red
+        }
+    ];
+
+    // Determine the max X-axis value dynamically to fix scaling issue
+    const maxOrder = bubbleData.length > 0 ? Math.max(...bubbleData.map(d => d.x)) : 5;
+    const xAxisMax = maxOrder + 1; // Add a small buffer of 1 unit
+
+    new Chart(bubbleCtx, {
+        type: 'bubble',
+        data: {
+            datasets: datasets
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Post Verification Order (Index)'
+                    },
+                    // Set min/max limits explicitly to prevent overflow
+                    min: 0,
+                    max: xAxisMax, 
+                    ticks: {
+                        stepSize: 1
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Time of Day (24hr)'
+                    },
+                    // Y-axis is fixed 24hr scale
+                    min: 0,
+                    max: 24,
+                    ticks: {
+                        stepSize: 2
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                }
+            }
+        }
+    });
+
+</script>
+{% endblock %}

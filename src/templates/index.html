@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>News Verification Portal</h2>
+<div class="card">
+    <h3>Upload News for Analysis</h3>
+    <form action="{{ url_for('analyze_and_verify') }}" method="POST" enctype="multipart/form-data">
+        <h4>Type News Text (Optional)</h4>
+        <textarea name="news_text" placeholder="Type or paste news article text here..." rows="6" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+        
+        <h4>Upload News Image (Optional, uses OCR)</h4>
+        <input type="file" name="news_image" accept="image/*" style="padding: 10px 0;">
+        <p style="font-size: 0.9em; color: #666;">Uploading an image will attempt to extract text using OCR.</p>
+
+        <button type="submit" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-top: 15px;">Analyze & Verify</button>
+    </form>
+</div>
+
+<div class="card" style="margin-top: 30px;">
+    <h3>Verification Results</h3>
+    {% if verification_result %}
+        <p style="font-size: 1.2em; padding: 10px; border-radius: 4px; 
+            background-color: {% if 'Neutral' in verification_result %} #fff3cd; color: #856404;
+            {% elif 'Positive' in verification_result %} #d4edda; color: #155724;
+            {% else %} #f8d7da; color: #721c24; {% endif %}; 
+            border: 1px solid {% if 'Neutral' in verification_result %} #ffeeba;
+            {% elif 'Positive' in verification_result %} #c3e6cb;
+            {% else %} #f5c6cb; {% endif %};">
+            {{ verification_result }}
+        </p>
+        {% if last_analysis %}
+            <h4>Details:</h4>
+            <ul>
+                <li><strong>Sentiment:</strong> <span class="sentiment-{{ last_analysis.sentiment.lower() }}">{{ last_analysis.sentiment }}</span></li>
+                <li><strong>Department:</strong> {{ last_analysis.departments }}</li>
+                <li><strong>Source:</strong> {{ last_analysis.source }}</li>
+                <li><strong>Text Snippet:</strong> <i style="color: #666;">{{ last_analysis.text[:100] }}...</i></li>
+            </ul>
+        {% endif %}
+    {% else %}
+        <p>Awaiting analysis...</p>
+    {% endif %}
+</div>
+
+{% endblock %}
