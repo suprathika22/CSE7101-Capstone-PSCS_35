@@ -1,4 +1,0 @@
-.card img {
-    /* Ensures the image is found if you place them in static/dept_imgs/ */
-    object-fit: cover;
-}
