@@ -1,0 +1,47 @@
+[
+    {
+        "name": "health",
+        "keywords": ["health", "hospital", "doctor", "patient", "medicine", "surgery", "medical", "nurse"],
+        "img": "dept_imgs/health.jpg"
+    },
+    {
+        "name": "politics",
+        "keywords": ["politics", "minister", "government", "party", "election", "vote", "policy", "parliament", "law"],
+        "img": "dept_imgs/politics.jpg"
+    },
+    {
+        "name": "sports",
+        "keywords": ["sports", "cricket", "football", "match", "player", "team", "tournament", "goal", "score", "runs", "wickets", "world cup", "stadium", "basketball", "olympics", "medal"],
+        "img": "dept_imgs/sports.jpg"
+    },
+    {
+        "name": "harassment",
+        "keywords": ["harassment", "harass","harassed","abuse", "assault", "victim", "complaint", "violence", "safety", "bully"],
+        "img": "dept_imgs/harassment.jpeg"
+    },
+    {
+        "name": "education",
+        "keywords": ["education", "school", "college", "university", "exam", "student", "teacher", "degree", "study", "admission", "class", "syllabus"],
+        "img": "dept_imgs/education.jpg" 
+    },
+    {
+        "name": "crime",
+        "keywords": ["crime", "theft", "murder", "robbery", "fraud", "assault", "prison", "arrest", "case", "police", "court"],
+        "img": "dept_imgs/crime.jpg"
+    },
+    {
+        "name": "festivals",
+        "keywords": ["festival", "celebration", "holiday", "diwali", "christmas", "eid", "pongal", "event", "navratri", "ganesh", "celebrate"],
+        "img": "dept_imgs/festivals.jpeg"
+    },
+    {
+        "name": "business",
+        "keywords": ["business", "stock", "market", "company", "trade", "shares", "exchange", "investment", "revenue", "profit", "loss", "bse", "nse", "finance", "economy"],
+        "img": "dept_imgs/business.jpeg"
+    },
+    {
+        "name": "weather",
+        "keywords": ["weather", "rain", "storm", "temperature","spring","monsoon","summer","winter", "climate", "forecast", "heatwave", "cold", "snow", "wind", "flood", "drought", "monsoon", "humidity"],
+        "img": "static/dept_imgs/weather.jpg"
+    }
+]
